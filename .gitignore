@@ -4,3 +4,4 @@ node_modules
 testes/
 jest.config.cjs
 exemplos-corretos
+coverage
