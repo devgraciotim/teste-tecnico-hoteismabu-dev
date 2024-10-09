@@ -2,10 +2,9 @@
 
 ## Objetivo
 
-O objetivo deste teste é avaliar sua capacidade de d**esenvolver soluções com foco em organização, boas práticas de
+O objetivo deste teste é avaliar sua capacidade de **desenvolver soluções com foco em organização, boas práticas de
 código, e validação de dados.** Você implementará funcionalidades de um sistema de gerenciamento de hotel que envolve
-três
-componentes principais:
+três componentes principais:
 
 1. Fila de Espera do Hotel
 2. Banco de Dados de Hóspedes
@@ -114,7 +113,7 @@ Seu código será avaliado com base nos seguintes critérios:
     - Faça commits frequentes e com mensagens claras, que expliquem a mudança realizada.
     - Exemplo de commit: `Implementa a função de adicionar hóspedes à fila de espera`.
 4. **Suba o código no seu repositório:**
-    - Após concluir o teste, faça o push do código para o seu repositório.
+    - Após concluir o teste, faça o push do código para esse repositorio com branch especifica.
 
 
 
