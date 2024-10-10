@@ -9,6 +9,18 @@ class Reserva {
      */
     constructor(quarto, data) {
         // TODO: Implementar o construtor para inicializar as propriedades quarto e data
+
+        const validaData = /^\d{4}-\d{2}-\d{2}$/
+        if(!validaData.test(data)) {
+            throw new Error("Formato de data invalido, data deve estar no formato YYYY-MM-DD")
+        }
+
+        if(isNaN(quarto) && typeof quarto == 'number') {
+            throw new Error("Quarto deve ser um número válido")
+        }
+
+        this.quarto = quarto
+        this.data = data
     }
 
     /**
@@ -17,6 +29,7 @@ class Reserva {
      */
     getQuarto() {
         // TODO: Implementar o método para retornar o número do quarto reservado
+        return this.quarto
     }
 
     /**
@@ -25,7 +38,11 @@ class Reserva {
      */
     getData() {
         // TODO: Implementar o método para retornar a data da reserva
+        return this.data
     }
 }
+
+const reserva = new Reserva(1, '2024-10-09')
+console.log(reserva)
 
 export default Reserva;
