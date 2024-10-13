@@ -10,6 +10,15 @@ class Hospede {
 
     constructor(nome, email) {
         // TODO: Implementar o construtor para inicializar as propriedades nome e email
+        if(typeof nome !== "string" || nome.trim() === "") {
+            throw new Error("Nome deve ser uma string válida diferente de vazio")
+        }
+
+        const validarEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if(!validarEmail.test(email)) {
+            throw new Error("Email deve ter o formato exemplo@exemplo.ex")
+        }
+
         this.nome = nome
         this.email = email
     }
