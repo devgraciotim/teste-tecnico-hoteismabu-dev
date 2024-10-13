@@ -6,12 +6,12 @@ import sqlite from 'sqlite3';
 class BancoDeDadosHospedes {
     constructor() {
         // TODO: Implementar o construtor para inicializar a conexão com o banco de dados (SQLite)
-        this.db = new sqlite.Database("bancodedados.db", async (err) => {
+        this.db = new sqlite.Database("bancodedados.db", (err) => {
             if (err) {
                 console.error("Erro ao conectar com o banco:", err.message)
             } else {
                 console.log("Conectado com o banco")
-                await this.criarTabelas()
+                this.criarTabelas()
             }
         })
     }
@@ -119,19 +119,5 @@ class BancoDeDadosHospedes {
         })
     }
 }
-
-const BancoDeDados = new BancoDeDadosHospedes()
-
-const idHospede = await BancoDeDados.inserirHospede("João Graciotim", -299) 
-console.log(idHospede)
-
-const hospede = await BancoDeDados.buscarHospede(idHospede)
-console.log(hospede)
-
-const atualizarHospede = await BancoDeDados.atualizarQuarto(idHospede, 200)
-console.log(atualizarHospede)
-
-const hospedeatt = await BancoDeDados.buscarHospede(idHospede)
-console.log(hospedeatt)
 
 export default BancoDeDadosHospedes

@@ -69,11 +69,4 @@ class FilaDeEspera {
     }
 }
 
-const fila = new FilaDeEspera()
-
-fila.adicionar("teste")
-console.log(fila.estaVazia())
-console.log(fila.atender())
-console.log(fila.estaVazia())
-
 export default FilaDeEspera;

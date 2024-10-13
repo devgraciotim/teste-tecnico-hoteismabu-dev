@@ -42,7 +42,4 @@ class Reserva {
     }
 }
 
-const reserva = new Reserva(1, '2024-10-09')
-console.log(reserva)
-
 export default Reserva;
