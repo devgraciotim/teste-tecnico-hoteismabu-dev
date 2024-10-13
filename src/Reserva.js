@@ -15,8 +15,8 @@ class Reserva {
             throw new Error("Formato de data invalido, data deve estar no formato YYYY-MM-DD")
         }
 
-        if(isNaN(quarto) && typeof quarto == 'number') {
-            throw new Error("Quarto deve ser um número válido")
+        if(!Number.isInteger(quarto) || quarto <= 0) {
+            throw new Error("Quarto deve ser um número inteiro maior que zero")
         }
 
         this.quarto = quarto

@@ -10,6 +10,8 @@ class Hospede {
 
     constructor(nome, email) {
         // TODO: Implementar o construtor para inicializar as propriedades nome e email
+        this.nome = nome
+        this.email = email
     }
 
     /**
@@ -18,6 +20,7 @@ class Hospede {
      */
     getNome() {
         // TODO: Implementar o método para retornar o nome do hóspede
+        return this.nome
     }
 
     /**
@@ -26,6 +29,7 @@ class Hospede {
      */
     getEmail() {
         // TODO: Implementar o método para retornar o email do hóspede
+        return this.email
     }
 }
 
