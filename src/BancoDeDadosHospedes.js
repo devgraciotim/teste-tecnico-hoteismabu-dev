@@ -113,7 +113,7 @@ class BancoDeDadosHospedes {
                 if(err) {
                     reject(err)
                 } else {
-                    resolve("Quarto atualizado")
+                    resolve()
                 }
             })
         })
