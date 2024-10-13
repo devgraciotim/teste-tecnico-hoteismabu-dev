@@ -39,6 +39,15 @@ class BancoDeDadosHospedes {
         // Retornar uma Promise que resolve com o ID do hóspede inserido
 
         return new Promise((resolve, reject) => {
+
+            if(typeof nome !== "string" || nome.trim() === "") {
+                reject(new Error("Nome deve ser uma String não vazia"))
+            } 
+
+            if(!Number.isInteger(quarto) || quarto <= 0) {
+                reject(new Error("Número do quarto deve ser inteiro e maior que zero"))
+            }
+
             const queryInsereHospede = "INSERT INTO hospedes (nome, quarto) VALUES (?, ?)"
 
             this.db.run(queryInsereHospede, [nome, quarto], function(err) {
@@ -61,6 +70,11 @@ class BancoDeDadosHospedes {
         // Retornar uma Promise que resolve com um objeto Hospede ou null se não encontrado
 
         return new Promise((resolve, reject) => {
+
+            if(!Number.isInteger(id) || id <= 0) {
+                reject(new Error("id deve ser um número inteiro e maior que zero"))
+            }
+
             const queryBuscaHospedeId = "SELECT * FROM hospedes WHERE id = ?"
 
             this.db.get(queryBuscaHospedeId, [id], function(err, row) {
@@ -84,6 +98,15 @@ class BancoDeDadosHospedes {
         // Retornar uma Promise que resolve quando a operação estiver completa
 
         return new Promise((resolve, reject) => {
+
+            if(!Number.isInteger(id) || id <= 0) {
+                reject(new Error("id deve ser um número inteiro e maior que zero"))
+            }
+
+            if(!Number.isInteger(novoQuarto) || novoQuarto <= 0) {
+                reject(new Error("Número do novo quarto deve ser um inteiro maior que zero"))
+            }
+
             const queryAtualizaQuarto = "UPDATE hospedes SET quarto = ? WHERE id = ?"
 
             this.db.run(queryAtualizaQuarto, [novoQuarto, id], function(err) {
