@@ -122,7 +122,7 @@ class BancoDeDadosHospedes {
 
 const BancoDeDados = new BancoDeDadosHospedes()
 
-const idHospede = await BancoDeDados.inserirHospede("João Graciotim", 299) 
+const idHospede = await BancoDeDados.inserirHospede("João Graciotim", -299) 
 console.log(idHospede)
 
 const hospede = await BancoDeDados.buscarHospede(idHospede)
