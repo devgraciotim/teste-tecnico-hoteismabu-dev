@@ -59,6 +59,18 @@ class BancoDeDadosHospedes {
     buscarHospede(id) {
         // TODO: Implementar a lógica para buscar um hóspede no banco de dados pelo ID
         // Retornar uma Promise que resolve com um objeto Hospede ou null se não encontrado
+
+        return new Promise((resolve, reject) => {
+            const queryBuscaHospedeId = "SELECT * FROM hospedes WHERE id = ?"
+
+            this.db.get(queryBuscaHospedeId, [id], function(err, row) {
+                if(err) {
+                    reject(err)
+                } else {
+                    resolve(row || null)
+                }
+            })
+        })
     }
 
     /**
@@ -70,17 +82,33 @@ class BancoDeDadosHospedes {
     atualizarQuarto(id, novoQuarto) {
         // TODO: Implementar a lógica para atualizar o número do quarto de um hóspede
         // Retornar uma Promise que resolve quando a operação estiver completa
+
+        return new Promise((resolve, reject) => {
+            const queryAtualizaQuarto = "UPDATE hospedes SET quarto = ? WHERE id = ?"
+
+            this.db.run(queryAtualizaQuarto, [novoQuarto, id], function(err) {
+                if(err) {
+                    reject(err)
+                } else {
+                    resolve("Quarto atualizado")
+                }
+            })
+        })
     }
 }
 
-const bancoDeDados = new BancoDeDadosHospedes()
+const BancoDeDados = new BancoDeDadosHospedes()
 
-try {
-    const idHospede = await bancoDeDados.inserirHospede("João Graciotim", 22)
-    console.log(idHospede)
-} catch (err) {
-    console.error("Erro ao inserir hospede:", err.message)
-}
+const idHospede = await BancoDeDados.inserirHospede("João Graciotim", 299) 
+console.log(idHospede)
 
+const hospede = await BancoDeDados.buscarHospede(idHospede)
+console.log(hospede)
+
+const atualizarHospede = await BancoDeDados.atualizarQuarto(idHospede, 200)
+console.log(atualizarHospede)
+
+const hospedeatt = await BancoDeDados.buscarHospede(idHospede)
+console.log(hospedeatt)
 
 export default BancoDeDadosHospedes
